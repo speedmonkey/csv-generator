@@ -9,15 +9,17 @@ const initialState = {
   counter: 0,
 };
 
-export default produce((draft = initialState, action) => {
-  switch (action.type) {
-    case INCREMENT:
-      draft.counter += 1;
-      break;
-    case DECREMENT:
-      if (draft.counter !== 0) draft.counter -= 1;
-      break;
-    default:
-      return draft;
-  }
-});
+/* eslint-disable default-case, no-param-reassign */
+const homeReducer = (state = initialState, action) =>
+  produce(state, draft => {
+    switch (action.type) {
+      case INCREMENT:
+        draft.counter += 1;
+        break;
+      case DECREMENT:
+        draft.counter -= 1;
+        break;
+    }
+  });
+
+export default homeReducer;
