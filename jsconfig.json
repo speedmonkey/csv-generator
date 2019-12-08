@@ -3,11 +3,13 @@
     "baseUrl": "./",
     "paths": {
       "root/*": ["./*"],
-      "actions/*": ["src/actions/*"],
-      "constants/*": ["src/constants/*"],
-      "pages/*": ["src/pages/*"],
-      "reducers/*": ["src/reducers/*"],
-      "selectors/*": ["src/selectors/*"]
+      "components/*": ["src/components/*"],
+      "containers/*": ["src/containers/*"],
+      "images/*": ["src/images/*"],
+      "actions/*": ["src/redux/actions/*"],
+      "constants/*": ["src/redux/constants/*"],
+      "reducers/*": ["src/redux/reducers/*"],
+      "selectors/*": ["src/redux/selectors/*"]
     },
     "jsx": "react"
   },

@@ -19,6 +19,15 @@ module.exports = {
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        // Handle Images and others files as Object
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10 * 1024,
+          name: '[name]-[hash].[ext]',
+        },
+      },
     ],
   },
   resolve: {
@@ -26,11 +35,13 @@ module.exports = {
     alias: {
       /* eslint-disable */
       'root': path.resolve(__dirname, './'), // prettier-ignore
-      'actions': path.resolve(__dirname, 'src/actions'), // prettier-ignore
-      'constants': path.resolve(__dirname, 'src/constants'), // prettier-ignore
-      'pages': path.resolve(__dirname, 'src/pages'), // prettier-ignore
-      'reducers': path.resolve(__dirname, 'src/reducers'), // prettier-ignore
-      'selectors': path.resolve(__dirname, 'src/selectors') // prettier-ignore
+      'components': path.resolve(__dirname, 'src/components'), // prettier-ignore
+      'containers': path.resolve(__dirname, 'src/containers'), // prettier-ignore
+      'images': path.resolve(__dirname, 'src/images'), // prettier-ignore
+      'actions': path.resolve(__dirname, 'src/redux/actions'), // prettier-ignore
+      'constants': path.resolve(__dirname, 'src/redux/constants'), // prettier-ignore
+      'reducers': path.resolve(__dirname, 'src/redux/reducers'), // prettier-ignore
+      'selectors': path.resolve(__dirname, 'src/redux/selectors') // prettier-ignore
       /* eslint-enable */
     },
   },
