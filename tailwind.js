@@ -173,6 +173,7 @@ module.exports = {
   width: {
     ...sizes,
     full: '100%',
+    middle: '50%',
     screen: '100vw',
   },
 
@@ -186,6 +187,7 @@ module.exports = {
   height: {
     ...sizes,
     full: '100%',
+    middle: '50%',
     screen: '100vh',
   },
 

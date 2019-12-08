@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import styled from 'styled-components';
 
 // Imports pages
 import HomePage from 'containers/Home';
@@ -9,15 +10,32 @@ import Header from './Header';
 // Import Global Styles
 import GlobalStyle from './globalStyle';
 
+const BodyContent = styled.div`
+  ${tw`h-full w-full bg-blueLighter`};
+`;
+
+const Wrapper = styled.div`
+  ${tw`justify-center flex`};
+`;
+
+const Container = styled.div`
+  ${tw`p-2 flex items-center w-full`};
+  max-width: 1260px;
+`;
+
 const Layout = () => (
-  <div>
+  <BodyContent>
     <Header />
-    <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route component={NotFoundPage} />
-    </Switch>
+    <Wrapper>
+      <Container>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Container>
+    </Wrapper>
     <GlobalStyle />
-  </div>
+  </BodyContent>
 );
 
 export default Layout;

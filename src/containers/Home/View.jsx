@@ -1,8 +1,9 @@
 import React from 'react';
+import Product from 'containers/Product';
 
 const HomeView = () => (
   <div>
-    <p>Hello</p>
+    <Product />
   </div>
 );
 

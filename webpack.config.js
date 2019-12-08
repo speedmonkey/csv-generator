@@ -19,14 +19,20 @@ module.exports = {
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader'],
       },
+      // Handle images and objects
       {
-        // Handle Images and others files as Object
-        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10 * 1024,
-          name: '[name]-[hash].[ext]',
-        },
+        test: /\.(gif|svg|png|jpg|eot|otf|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              limit: 10 * 1024,
+              publicPath: 'build',
+              name: '[name]-[hash].[ext]',
+              esModule: false,
+            },
+          },
+        ],
       },
     ],
   },
