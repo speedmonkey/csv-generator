@@ -5,17 +5,17 @@ import styled from 'styled-components';
 // Imports pages
 import HomePage from 'containers/Home';
 import NotFoundPage from 'containers/NotFound';
-import Header from './Header';
+import Header from 'containers/Header';
 
 // Import Global Styles
 import GlobalStyle from './globalStyle';
 
 const BodyContent = styled.div`
-  ${tw`h-full w-full bg-blueLighter`};
+  ${tw`h-full w-full`};
 `;
 
 const Wrapper = styled.div`
-  ${tw`justify-center flex`};
+  ${tw`justify-center flex bg-blueLighter`};
 `;
 
 const Container = styled.div`
@@ -23,7 +23,7 @@ const Container = styled.div`
   max-width: 1260px;
 `;
 
-const Layout = () => (
+const App = () => (
   <BodyContent>
     <Header />
     <Wrapper>
@@ -38,4 +38,4 @@ const Layout = () => (
   </BodyContent>
 );
 
-export default Layout;
+export default App;

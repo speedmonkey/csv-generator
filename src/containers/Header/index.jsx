@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import LogoSVG from 'images/LogoCSV.svg';
 
 const Content = styled.div`
-  ${tw`justify-center shadow-header flex`};
+  ${tw`justify-center shadow-header flex bg-white`};
 `;
 
 const Navigation = styled.div`
