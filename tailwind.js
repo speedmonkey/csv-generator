@@ -16,7 +16,12 @@ const colors = {
   blue: '#3E417E',
   blueDarker: '#25274C',
   white: '#FFFFFF',
-  blueLight: '#F0F2FE',
+  blueLight: '#CFD2FB',
+  light: '#ccc',
+  green: '#67E4AB',
+  red: '#E54910',
+  gray: '#efefef',
+  spacer: '#f0f1f7',
 };
 
 const sizes = {
@@ -145,6 +150,25 @@ module.exports = {
     auto: 'auto',
     cover: 'cover',
     contain: 'contain',
+  },
+
+  /*
+  |-----------------------------------------------------------------------------
+  | [Border widths]                     https://tailwindcss.com/docs/border-width
+  | [Tailwind macro] border-{-side?}{-width?}
+  |-----------------------------------------------------------------------------
+  |
+  */
+
+  borderWidths: {
+    default: '1px',
+    '0': '0',
+    '2': '2px',
+    '3': '3px',
+    '4': '4px',
+    '6': '6px',
+    '7': '7px',
+    '8': '8px',
   },
 
   /*

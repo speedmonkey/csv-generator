@@ -1,16 +1,25 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { setProductCategoryAction } from 'actions/productActions';
-import { productCategorySelector } from 'selectors/productSelectors';
+import {
+  setProductCategoryAction,
+  setProductNameAction,
+} from 'actions/productActions';
+import {
+  productCategorySelector,
+  productNameSelector,
+} from 'selectors/productSelectors';
 import ProductView from './View';
 
 const mapStateToProps = state => ({
   productCategory: productCategorySelector(state),
+  productName: productNameSelector(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  setProductCategory: nameProduct =>
-    dispatch(setProductCategoryAction(nameProduct)),
+  setProductCategory: productCategory =>
+    dispatch(setProductCategoryAction(productCategory)),
+  setProductName: productName =>
+    dispatch(setProductNameAction(productName)),
 });
 
 const withConnect = connect(

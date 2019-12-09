@@ -6,3 +6,8 @@ export const productCategorySelector = createSelector(
   productSelector,
   product => product.productCategory,
 );
+
+export const productNameSelector = createSelector(
+  productSelector,
+  product => product.productName,
+);
