@@ -29,6 +29,7 @@ const ProductView = ({
   productName,
   setProductCategory,
   setProductName,
+  updateSheetOptions,
 }) => (
   <div>
     <Card>
@@ -45,7 +46,10 @@ const ProductView = ({
         <Label>Catégorie du produit :</Label>
         <Select
           value={productCategory}
-          onChange={e => setProductCategory(e.target.value)}
+          onChange={e => {
+            setProductCategory(e.target.value);
+            updateSheetOptions(e.target.value);
+          }}
         >
           <option value="solitaires">
             Solitaires Diamant
@@ -67,6 +71,7 @@ ProductView.propTypes = {
   productName: PropTypes.string,
   setProductCategory: PropTypes.func,
   setProductName: PropTypes.func,
+  updateSheetOptions: PropTypes.func,
 };
 
 export default ProductView;

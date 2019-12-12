@@ -25,10 +25,10 @@ const GlobalStyle = createGlobalStyle`
 
   p, label, a, span {
     line-height: 1.5em;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     margin: unset;
     @media (min-width: 768px) {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
     }
   }
 

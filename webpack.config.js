@@ -40,14 +40,15 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
     alias: {
       /* eslint-disable */
-      'root': path.resolve(__dirname, './'), // prettier-ignore
       'components': path.resolve(__dirname, 'src/components'), // prettier-ignore
       'containers': path.resolve(__dirname, 'src/containers'), // prettier-ignore
+      'data': path.resolve(__dirname, 'src/data'), // prettier-ignore
       'images': path.resolve(__dirname, 'src/images'), // prettier-ignore
       'actions': path.resolve(__dirname, 'src/redux/actions'), // prettier-ignore
       'constants': path.resolve(__dirname, 'src/redux/constants'), // prettier-ignore
       'reducers': path.resolve(__dirname, 'src/redux/reducers'), // prettier-ignore
-      'selectors': path.resolve(__dirname, 'src/redux/selectors') // prettier-ignore
+      'selectors': path.resolve(__dirname, 'src/redux/selectors'), // prettier-ignore
+      'root': path.resolve(__dirname, './') // prettier-ignore
       /* eslint-enable */
     },
   },

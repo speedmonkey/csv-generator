@@ -2,14 +2,15 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "root/*": ["./*"],
       "components/*": ["src/components/*"],
       "containers/*": ["src/containers/*"],
+      "data": ["src/data/*"],
       "images/*": ["src/images/*"],
       "actions/*": ["src/redux/actions/*"],
       "constants/*": ["src/redux/constants/*"],
       "reducers/*": ["src/redux/reducers/*"],
-      "selectors/*": ["src/redux/selectors/*"]
+      "selectors/*": ["src/redux/selectors/*"],
+      "root/*": ["./*"]
     },
     "jsx": "react"
   },

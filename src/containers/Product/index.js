@@ -8,6 +8,7 @@ import {
   productCategorySelector,
   productNameSelector,
 } from 'selectors/productSelectors';
+import { updateSheetOptionsAction } from 'actions/sheetActions';
 import ProductView from './View';
 
 const mapStateToProps = state => ({
@@ -20,6 +21,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(setProductCategoryAction(productCategory)),
   setProductName: productName =>
     dispatch(setProductNameAction(productName)),
+  updateSheetOptions: dataSheet =>
+    dispatch(updateSheetOptionsAction(dataSheet)),
 });
 
 const withConnect = connect(

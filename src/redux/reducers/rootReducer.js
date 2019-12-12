@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import homeReducer from './homeReducer';
 import productReducer from './productReducer';
+import sheetReducer from './sheetReducer';
 
 export default combineReducers({
-  home: homeReducer,
   product: productReducer,
+  sheet: sheetReducer,
 });
