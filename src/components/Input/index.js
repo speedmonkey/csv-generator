@@ -3,7 +3,7 @@ import { colors } from 'root/tailwind';
 
 const Input = styled.input`
   ${tw`outline-none text-black p-1`}
-  width: 220px;
+  width: 250px;
   height: 15px;
   border: 2px solid ${colors.gray};
   border-radius: 5px;

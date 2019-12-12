@@ -1,25 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { colors } from 'root/tailwind';
+import Card from 'components/Card';
 import Input from 'components/Input';
 import Select from 'components/Select';
-
-const Container = styled.div`
-  ${tw`flex flex-col`};
-  height: 500px;
-  width: 500px;
-`;
+import H3 from 'components/H3';
 
 const Image = styled.img`
-  ${tw`mt-2 mb-2`}
-  height: 80%;
-  width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  ${tw`h-middle w-middle m-auto mt-2 mb-2`}
+  border: 1px solid ${colors.black};
 `;
 
 const Row = styled.div`
-  ${tw`flex flex-row pb-2`};
+  ${tw`flex flex-row pb-1 pl-2 pt-2`};
 `;
 
 const Label = styled.label`
@@ -37,7 +31,8 @@ const ProductView = ({
   setProductName,
 }) => (
   <div>
-    <Container>
+    <Card>
+      <H3>Étape 1 : Création du produit</H3>
       <Row>
         <Label>Nom du produit :</Label>
         <Input
@@ -63,7 +58,7 @@ const ProductView = ({
       <Image
         src={requireImage(`./${productCategory}.jpg`)}
       />
-    </Container>
+    </Card>
   </div>
 );
 

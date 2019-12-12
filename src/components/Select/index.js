@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Select = styled.select`
   ${tw`outline-none text-black p-1 bg-white`}
-  width: 220px;
+  width: 240px;
   height: 35px;
   border: 1px solid #ccc;
   border-radius: 2px 0 0 2px;
