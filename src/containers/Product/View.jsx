@@ -6,6 +6,7 @@ import Card from 'components/Card';
 import Input from 'components/Input';
 import Select from 'components/Select';
 import H3 from 'components/H3';
+import ChevronIcon from 'images/Chevron.svg';
 
 const Image = styled.img`
   ${tw`h-middle w-middle m-auto mt-2 mb-2`}
@@ -19,6 +20,16 @@ const Row = styled.div`
 const Label = styled.label`
   ${tw`mr-2`};
   margin-top: 0.5rem;
+`;
+
+const SelectContainer = styled.div`
+  ${tw`relative`}
+`;
+
+const Chevron = styled.img`
+  ${tw`absolute`};
+  right: 5px;
+  top: 5px;
 `;
 
 // Rendering dynamically images
@@ -44,20 +55,23 @@ const ProductView = ({
       </Row>
       <Row>
         <Label>Catégorie du produit :</Label>
-        <Select
-          value={productCategory}
-          onChange={e => {
-            setProductCategory(e.target.value);
-            updateSheetOptions(e.target.value);
-          }}
-        >
-          <option value="solitaires">
-            Solitaires Diamant
-          </option>
-          <option value="alliances">Alliances</option>
-          <option value="bijoux">Bijoux</option>
-          <option value="parures">Parures</option>
-        </Select>
+        <SelectContainer>
+          <Select
+            value={productCategory}
+            onChange={e => {
+              setProductCategory(e.target.value);
+              updateSheetOptions(e.target.value);
+            }}
+          >
+            <option value="solitaires">
+              Solitaires Diamant
+            </option>
+            <option value="alliances">Alliances</option>
+            <option value="bijoux">Bijoux</option>
+            <option value="parures">Parures</option>
+          </Select>
+          <Chevron src={ChevronIcon} />
+        </SelectContainer>
       </Row>
       <Image
         src={requireImage(`./${productCategory}.jpg`)}

@@ -42,7 +42,7 @@ const Error = styled.span`
 `;
 
 const Success = styled.span`
-  ${tw`ml-1 text-green`}
+  ${tw`ml-1 text-blue`}
 `;
 
 const HeaderView = ({ productName, productCategory }) => (
@@ -52,10 +52,11 @@ const HeaderView = ({ productName, productCategory }) => (
       <Title>Générateur de fichiers CSV</Title>
       <Spacer>
         <span>
-          Catégorie : <Category>{productCategory}</Category>
+          Catégorie du produit :{' '}
+          <Category>{productCategory}</Category>
         </span>
       </Spacer>
-      <Text>Nom : </Text>
+      <Text>Nom du produit : </Text>
       {productName === '' && <Error>Non défini</Error>}
       <Success>{productName}</Success>
     </Navigation>

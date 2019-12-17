@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 const Select = styled.select`
-  ${tw`outline-none text-black p-1 bg-white`}
+  ${tw`outline-none text-black bg-white`}
+  padding-left: 15px;
+  padding-right: 35px;
+  appearance: none;
   width: 240px;
   height: 35px;
   border: 1px solid #ccc;

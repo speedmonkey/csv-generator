@@ -11,7 +11,7 @@ const Label = styled.label`
 `;
 
 const Row = styled.div`
-  ${tw`flex flex-row p-2 pb-1`};
+  ${tw`flex flex-row p-1`};
 `;
 
 const SheetView = ({
@@ -21,7 +21,7 @@ const SheetView = ({
   <div>
     <Card>
       <H3>Étape 2 : Fiche technique</H3>
-      {optionsSheet.map((item, index) => (
+      {optionsSheet.selectValues.map((item, index) => (
         <Row key={item.name}>
           <Label>{item.name}</Label>
           <ShowSelectValues
@@ -37,7 +37,7 @@ const SheetView = ({
 );
 
 SheetView.propTypes = {
-  optionsSheet: PropTypes.array,
+  optionsSheet: PropTypes.object,
   updateDefaultValue: PropTypes.func,
 };
 
