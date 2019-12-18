@@ -11,3 +11,8 @@ export const productNameSelector = createSelector(
   productSelector,
   product => product.productName,
 );
+
+export const productReferenceSelector = createSelector(
+  productSelector,
+  product => product.productReference,
+);
