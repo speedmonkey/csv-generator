@@ -3,12 +3,10 @@ import Select from 'components/Select';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ChevronIcon from 'images/Chevron.svg';
+import { SELECT_VALUES } from 'constants/sheetConstants';
 
 const SelectContainer = styled.div`
   ${tw`relative`}
-`;
-const SheetSelect = styled(Select)`
-  width: unset;
 `;
 
 const Chevron = styled.img`
@@ -24,10 +22,14 @@ const ShowSelectValues = ({
   updateDefaultValue,
 }) => (
   <SelectContainer>
-    <SheetSelect
+    <Select
       value={defaultValue}
       onChange={e =>
-        updateDefaultValue(e.target.value, optionIndex)
+        updateDefaultValue(
+          e.target.value,
+          optionIndex,
+          SELECT_VALUES,
+        )
       }
     >
       {selectValues.map(item => (
@@ -35,7 +37,7 @@ const ShowSelectValues = ({
           {item}
         </option>
       ))}
-    </SheetSelect>
+    </Select>
     <Chevron src={ChevronIcon} />
   </SelectContainer>
 );

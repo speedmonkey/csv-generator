@@ -19,7 +19,7 @@ const colors = {
   blueLight: '#CFD2FB',
   light: '#ccc',
   green: '#67E4AB',
-  red: '#E54910',
+  red: '#c11e1ef2',
   gray: '#efefef',
   spacer: '#f0f1f7',
 };

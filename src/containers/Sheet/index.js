@@ -9,9 +9,13 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateDefaultValue: (newValue, optionIndex) =>
+  updateDefaultValue: (newValue, optionIndex, typeValues) =>
     dispatch(
-      updateDefaultValueAction(newValue, optionIndex),
+      updateDefaultValueAction(
+        newValue,
+        optionIndex,
+        typeValues,
+      ),
     ),
 });
 

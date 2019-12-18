@@ -7,6 +7,7 @@ import Input from 'components/Input';
 import Select from 'components/Select';
 import H3 from 'components/H3';
 import ChevronIcon from 'images/Chevron.svg';
+import Label from 'components/Label';
 
 const Image = styled.img`
   ${tw`h-middle w-middle m-auto mt-2 mb-2`}
@@ -15,11 +16,6 @@ const Image = styled.img`
 
 const Row = styled.div`
   ${tw`flex flex-row pb-1 pl-2 pt-2`};
-`;
-
-const Label = styled.label`
-  ${tw`mr-2`};
-  margin-top: 0.5rem;
 `;
 
 const SelectContainer = styled.div`

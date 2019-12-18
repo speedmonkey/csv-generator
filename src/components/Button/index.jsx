@@ -4,13 +4,16 @@ import PropTypes from 'prop-types';
 
 const StyledButton = styled.button`
   ${tw`shadow-def bg-blue text-white 
-  h-5 pl-3 pr-3 m-auto ml-2 ml-2 
-  hover:bg-blueDarker rounded-def`};
+  pl-3 pr-3 ml-2 ml-2 rounded-def`};
   font-size: 1.6rem;
+  height: 3.5rem;
+  background: ${props => props.color && `${props.color}`};
 `;
 
-const Button = ({ events, value }) => (
-  <StyledButton onClick={events}>{value}</StyledButton>
+const Button = ({ events, value, color }) => (
+  <StyledButton onClick={events} color={color}>
+    {value}
+  </StyledButton>
 );
 
 Button.propTypes = {
@@ -21,6 +24,7 @@ Button.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]),
+  color: PropTypes.string,
 };
 
 export default Button;

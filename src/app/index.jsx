@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   ${tw`p-2 flex items-center w-full`};
-  max-width: 1260px;
+  max-width: 1380px;
 `;
 
 const App = () => (
