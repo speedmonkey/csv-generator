@@ -1,11 +1,16 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { optionsSheetSelector } from 'selectors/sheetSelectors';
-import { updateDefaultValueAction } from 'actions/sheetActions';
+import {
+  updateDefaultValueAction,
+  updateSheetOptionsAction,
+} from 'actions/sheetActions';
+import { productCategorySelector } from 'selectors/productSelectors';
 import SheetView from './View';
 
 const mapStateToProps = state => ({
   optionsSheet: optionsSheetSelector(state),
+  productCategory: productCategorySelector(state),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -17,6 +22,8 @@ const mapDispatchToProps = dispatch => ({
         typeValues,
       ),
     ),
+  updateSheetOptions: dataSheet =>
+    dispatch(updateSheetOptionsAction(dataSheet)),
 });
 
 const withConnect = connect(

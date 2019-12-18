@@ -6,8 +6,19 @@ import styled from 'styled-components';
 import Input from 'components/Input';
 import { NUMBER_VALUES } from 'constants/sheetConstants';
 import Label from 'components/Label';
+import ReloadIcon from 'images/reload.svg';
 import ShowSelectValues from './ShowSelectValues';
 import MoreOptions from './MoreOptions';
+
+const Wrapper = styled.div`
+  ${tw`relative`};
+`;
+
+const Reload = styled.img`
+  ${tw`absolute h-4 cursor-pointer`};
+  right: 35px;
+  top: 35px;
+`;
 
 const Row = styled.div`
   ${tw`flex flex-row`};
@@ -23,9 +34,15 @@ const SheetInput = styled(Input)`
 
 const SheetView = ({
   optionsSheet,
+  productCategory,
   updateDefaultValue,
+  updateSheetOptions,
 }) => (
-  <div>
+  <Wrapper>
+    <Reload
+      src={ReloadIcon}
+      onClick={() => updateSheetOptions(productCategory)}
+    />
     <Card>
       <H3>Étape 2 : Fiche technique</H3>
       <Row>
@@ -64,12 +81,14 @@ const SheetView = ({
       </Row>
       <MoreOptions optionsSheet={optionsSheet} />
     </Card>
-  </div>
+  </Wrapper>
 );
 
 SheetView.propTypes = {
   optionsSheet: PropTypes.object,
+  productCategory: PropTypes.string,
   updateDefaultValue: PropTypes.func,
+  updateSheetOptions: PropTypes.func,
 };
 
 export default SheetView;
