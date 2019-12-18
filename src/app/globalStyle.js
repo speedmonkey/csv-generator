@@ -38,6 +38,8 @@ const GlobalStyle = createGlobalStyle`
     border: none;
   }
 
+  input { outline: none };
+
 `;
 
 export default GlobalStyle;

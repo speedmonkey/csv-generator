@@ -62,12 +62,6 @@ const LARGEUR_ANNEAU = {
   defaultValue: '1.69 - 1.74',
 };
 
-const TOUR_DOIGT = {
-  name: 'Tour de doigt',
-  selectValues: ['46 - 60', 'Aucun'],
-  defaultValue: '1.69 - 1.74',
-};
-
 export const selectSolitaires = [
   POIDS_PIERRE,
   COULEUR_DIAMANTS,
@@ -77,7 +71,6 @@ export const selectSolitaires = [
   METAL_UTILISE,
   COULEUR_METAL,
   LARGEUR_ANNEAU,
-  TOUR_DOIGT,
 ];
 
 /*

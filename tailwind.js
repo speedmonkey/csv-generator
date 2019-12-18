@@ -22,6 +22,8 @@ const colors = {
   red: '#c11e1ef2',
   gray: '#efefef',
   spacer: '#f0f1f7',
+  spacerLight: '#bec3de',
+  cell: '#e1e1e4',
 };
 
 const sizes = {
