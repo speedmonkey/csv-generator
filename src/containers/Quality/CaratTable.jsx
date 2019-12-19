@@ -16,19 +16,24 @@ const CellInput = styled.input`
 /* eslint-disable react/no-array-index-key */
 const CaratTable = ({ caratLines }) => (
   <Table>
-    {caratLines.map((line, index) => (
+    {caratLines.carats.map((line, index) => (
       <CellInput
-        key={line + index}
+        key={line + index + caratLines.tabNumber}
         autoComplete="off"
         value={line}
-        onChange={() => console.log('mdr')}
+        onChange={() =>
+          console.log(
+            `Numéro du tableau : ${caratLines.tabNumber}`,
+            `Index du tableau : ${index}`,
+          )
+        }
       />
     ))}
   </Table>
 );
 
 CaratTable.propTypes = {
-  caratLines: PropTypes.array,
+  caratLines: PropTypes.object,
 };
 
 export default CaratTable;

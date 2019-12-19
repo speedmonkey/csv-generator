@@ -6,47 +6,27 @@ export const QUALITY_CONSTANTS = [
   'D-IF',
 ];
 
-export const FIRST_CARAT_TABLE = [
-  '0,3 CARAT',
-  '',
-  '',
-  '',
-  '',
-  '',
-];
+export const FIRST_CARAT_TABLE = {
+  tabNumber: 0,
+  carats: ['0,3 CARAT', '', '', '', '', ''],
+};
 
-export const SECOND_CARAT_TABLE = [
-  '0,5 CARAT',
-  '',
-  '',
-  '',
-  '',
-  '',
-];
+export const SECOND_CARAT_TABLE = {
+  tabNumber: 1,
+  carats: ['0,5 CARAT', '', '', '', '', ''],
+};
 
-export const THIRD_CARAT_TABLE = [
-  '0,7 CARAT',
-  '',
-  '',
-  '',
-  '',
-  '',
-];
+export const THIRD_CARAT_TABLE = {
+  tabNumber: 2,
+  carats: ['0,7 CARAT', '', '', '', '', ''],
+};
 
-export const FOURTH_CARAT_TABLE = [
-  '1,0 CARAT',
-  '',
-  '',
-  '',
-  '',
-  '',
-];
+export const FOURTH_CARAT_TABLE = {
+  tabNumber: 3,
+  carats: ['1 CARAT', '', '', '', '', ''],
+};
 
-export const FIVE_CARAT_TABLE = [
-  '1,5 CARAT',
-  '',
-  '',
-  '',
-  '',
-  '',
-];
+export const FIVE_CARAT_TABLE = {
+  tabNumber: 4,
+  carats: ['1,5 CARAT', '', '', '', '', ''],
+};

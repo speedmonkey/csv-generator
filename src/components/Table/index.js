@@ -7,6 +7,7 @@ const Table = styled.div`
   border: 1px solid ${colors.spacerLight};
   border-left: 0px;
   border-collapse: collapse;
+  input:nth-child(even),
   div:nth-child(even) {
     background: ${colors.body};
   }

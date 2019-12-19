@@ -24,28 +24,36 @@ const QualityView = ({
   productName,
   qualityFields,
   caratTab,
-}) => (
-  <div>
-    <Card>
-      <H3>Étape 3 : Gestion de la qualité et des carats</H3>
-      <Row>
-        <Table>
-          {productName ? (
-            <Cell>{productName}</Cell>
-          ) : (
-            <Cell>Définir le nom de votre produit..</Cell>
-          )}
-          {qualityFields.map(item => (
-            <Cell key={item}>{item}</Cell>
+}) => {
+  console.warn(caratTab);
+  return (
+    <div>
+      <Card>
+        <H3>
+          Étape 3 : Gestion de la qualité et des carats
+        </H3>
+        <Row>
+          <Table>
+            {productName ? (
+              <Cell>{productName}</Cell>
+            ) : (
+              <Cell>Définir le nom de votre produit..</Cell>
+            )}
+            {qualityFields.map(item => (
+              <Cell key={item}>{item}</Cell>
+            ))}
+          </Table>
+          {caratTab.map(item => (
+            <CaratTable
+              key={item.carats[0]}
+              caratLines={item}
+            />
           ))}
-        </Table>
-        {caratTab.map(item => (
-          <CaratTable key={item} caratLines={item} />
-        ))}
-      </Row>
-    </Card>
-  </div>
-);
+        </Row>
+      </Card>
+    </div>
+  );
+};
 
 QualityView.propTypes = {
   productName: PropTypes.string,
