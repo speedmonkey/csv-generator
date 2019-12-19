@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Table from 'components/Table';
 import { colors } from 'root/tailwind';
+import NumberFormat from 'react-number-format';
 
-const CellInput = styled.input`
+const CellInput = styled(NumberFormat)`
   ${tw`p-1`};
   border: 1px solid ${colors.spacerLight};
   border-left: 0px;
@@ -14,17 +15,20 @@ const CellInput = styled.input`
 `;
 
 /* eslint-disable react/no-array-index-key */
-const CaratTable = ({ caratLines }) => (
+const CaratTable = ({ caratLines, updateValueTable }) => (
   <Table>
     {caratLines.carats.map((line, index) => (
       <CellInput
-        key={line + index + caratLines.tabNumber}
+        key={index + caratLines.tabNumber}
         autoComplete="off"
+        thousandSeparator={' '}
+        suffix=" €"
         value={line}
-        onChange={() =>
-          console.log(
-            `Numéro du tableau : ${caratLines.tabNumber}`,
-            `Index du tableau : ${index}`,
+        onChange={e =>
+          updateValueTable(
+            e.target.value,
+            caratLines.tabNumber,
+            index,
           )
         }
       />
@@ -34,6 +38,7 @@ const CaratTable = ({ caratLines }) => (
 
 CaratTable.propTypes = {
   caratLines: PropTypes.object,
+  updateValueTable: PropTypes.func,
 };
 
 export default CaratTable;
