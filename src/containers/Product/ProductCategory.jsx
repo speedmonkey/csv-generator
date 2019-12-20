@@ -4,10 +4,7 @@ import styled from 'styled-components';
 import ChevronIcon from 'images/Chevron.svg';
 import Select from 'components/Select';
 import Label from 'components/Label';
-
-const SelectContainer = styled.div`
-  ${tw`relative`}
-`;
+import SelectContainer from 'components/SelectContainer';
 
 const Chevron = styled.img`
   ${tw`absolute`};

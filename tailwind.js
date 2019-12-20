@@ -70,7 +70,7 @@ module.exports = {
     h1: '4.4rem',
     h2: '3.8rem',
     h3: '2.4rem',
-    h4: '2.2rem',
+    h4: '2rem',
     h5: '1.6rem',
     keynumber: '7.6rem',
     caption: '1.4rem',

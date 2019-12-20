@@ -4,10 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ChevronIcon from 'images/Chevron.svg';
 import { SELECT_VALUES } from 'constants/sheetConstants';
-
-const SelectContainer = styled.div`
-  ${tw`relative`}
-`;
+import SelectContainer from 'components/SelectContainer';
 
 const Chevron = styled.img`
   ${tw`absolute`};

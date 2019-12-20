@@ -16,10 +16,7 @@ import {
   updateValueToDeleteAction,
   deleteInputAction,
 } from 'actions/sheetActions';
-
-const SelectContainer = styled.div`
-  ${tw`relative`}
-`;
+import SelectContainer from 'components/SelectContainer';
 
 const Row = styled.div`
   ${tw`flex flex-row`};
