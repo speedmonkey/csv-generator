@@ -39,6 +39,7 @@ const QualityView = ({
   updateNewColumnName,
   addColumnTable,
   updateColumnToDelete,
+  deleteColumnTable,
 }) => (
   <div>
     <Card>
@@ -74,6 +75,7 @@ const QualityView = ({
           updateNewColumnName={updateNewColumnName}
           addColumnTable={addColumnTable}
           updateColumnToDelete={updateColumnToDelete}
+          deleteColumnTable={deleteColumnTable}
         />
       </Content>
     </Card>
@@ -85,11 +87,12 @@ QualityView.propTypes = {
   qualityFields: PropTypes.array,
   caratTab: PropTypes.array,
   newColumnName: PropTypes.string,
-  columnToDelete: PropTypes.string,
+  columnToDelete: PropTypes.number,
   updateValueTable: PropTypes.func,
   updateNewColumnName: PropTypes.func,
   addColumnTable: PropTypes.func,
   updateColumnToDelete: PropTypes.func,
+  deleteColumnTable: PropTypes.func,
 };
 
 export default QualityView;

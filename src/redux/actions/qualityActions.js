@@ -3,6 +3,7 @@ import {
   UPDATE_NEW_COLUMN_NAME,
   ADD_COLUMN_TABLE,
   UPDATE_COLUMN_TO_DELETE,
+  DELETE_COLUMN_TABLE,
 } from 'constants/qualityConstants';
 
 export function updateValueTableAction(
@@ -36,5 +37,11 @@ export function updateColumnToDeleteAction(columnTable) {
   return {
     type: UPDATE_COLUMN_TO_DELETE,
     columnTable,
+  };
+}
+
+export function deleteColumnTableAction() {
+  return {
+    type: DELETE_COLUMN_TABLE,
   };
 }

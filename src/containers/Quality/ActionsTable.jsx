@@ -35,6 +35,7 @@ const ActionsTable = ({
   updateNewColumnName,
   addColumnTable,
   updateColumnToDelete,
+  deleteColumnTable,
 }) => (
   <Actions>
     <H4>Actions à faire sur le tableau</H4>
@@ -55,7 +56,9 @@ const ActionsTable = ({
         <Select
           value={columnToDelete}
           onChange={e =>
-            updateColumnToDelete(e.target.value)
+            updateColumnToDelete(
+              parseInt(e.target.value, 10),
+            )
           }
         >
           {caratTab.map(item => (
@@ -71,7 +74,7 @@ const ActionsTable = ({
       </SelectContainer>
       <Button
         value="Supprimer la colonne choisie"
-        events={() => console.log('add')}
+        events={() => deleteColumnTable()}
         color="#c11e1ef2"
       />
     </Row>
@@ -81,10 +84,11 @@ const ActionsTable = ({
 ActionsTable.propTypes = {
   caratTab: PropTypes.array,
   newColumnName: PropTypes.string,
-  columnToDelete: PropTypes.string,
+  columnToDelete: PropTypes.number,
   updateNewColumnName: PropTypes.func,
   addColumnTable: PropTypes.func,
   updateColumnToDelete: PropTypes.func,
+  deleteColumnTable: PropTypes.func,
 };
 
 export default ActionsTable;

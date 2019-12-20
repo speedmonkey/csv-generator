@@ -5,6 +5,7 @@ import {
   UPDATE_NEW_COLUMN_NAME,
   ADD_COLUMN_TABLE,
   UPDATE_COLUMN_TO_DELETE,
+  DELETE_COLUMN_TABLE,
 } from 'constants/qualityConstants';
 
 import produce from 'immer';
@@ -14,7 +15,7 @@ const initialState = {
   caratTab: CARATS_TABLE,
   countTab: 5,
   newColumnName: '',
-  columnToDelete: '0',
+  columnToDelete: 0,
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -47,6 +48,21 @@ const qualityReducer = (state = initialState, action) =>
       }
       case UPDATE_COLUMN_TO_DELETE:
         draft.columnToDelete = action.columnTable;
+        break;
+      case DELETE_COLUMN_TABLE:
+        if (draft.countTab !== 0) {
+          draft.caratTab.splice(draft.columnToDelete, 1);
+          draft.countTab -= 1;
+          for (
+            let i = draft.columnToDelete;
+            i < draft.countTab;
+            i += 1
+          ) {
+            draft.caratTab[i].tabNumber = i;
+          }
+          draft.columnToDelete = 0;
+          break;
+        }
     }
   });
 

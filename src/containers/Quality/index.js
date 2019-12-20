@@ -12,6 +12,7 @@ import {
   updateNewColumnNameAction,
   addColumnTableAction,
   updateColumnToDeleteAction,
+  deleteColumnTableAction,
 } from 'actions/qualityActions';
 import QualityView from './View';
 
@@ -38,6 +39,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(addColumnTableAction(newColumnName)),
   updateColumnToDelete: columnTable =>
     dispatch(updateColumnToDeleteAction(columnTable)),
+  deleteColumnTable: () =>
+    dispatch(deleteColumnTableAction()),
 });
 
 const withConnect = connect(
