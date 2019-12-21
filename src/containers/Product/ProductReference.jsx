@@ -13,6 +13,7 @@ const ProductReference = ({
       placeholder="MONTRESOREWBWG"
       value={productReference}
       onChange={e => setProductReference(e.target.value)}
+      required
     />
   </>
 );

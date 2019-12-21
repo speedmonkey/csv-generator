@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import {
-  productNameSelector,
-  productCategorySelector,
-} from 'selectors/productSelectors';
+  actualStepSelector,
+  allStepSelector,
+} from 'selectors/headerSelectors';
 import HeaderView from './View';
 
 const mapStateToProps = state => ({
-  productName: productNameSelector(state),
-  productCategory: productCategorySelector(state),
+  actualStep: actualStepSelector(state),
+  allStep: allStepSelector(state),
 });
 
 const withConnect = connect(mapStateToProps, null);

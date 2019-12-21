@@ -10,6 +10,7 @@ const ProductName = ({ productName, setProductName }) => (
       placeholder="Alliance Diamant ELLE Or Blanc"
       onChange={e => setProductName(e.target.value)}
       value={productName}
+      required
     />
   </>
 );

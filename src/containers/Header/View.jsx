@@ -3,14 +3,16 @@ import styled from 'styled-components';
 import LogoSVG from 'images/LogoCSV.svg';
 import PropTypes from 'prop-types';
 import { colors } from 'root/tailwind';
+import StepUrl from 'images/Step.svg';
+import Button from 'components/Button';
 
 const Content = styled.div`
-  ${tw`justify-center shadow-header flex bg-white`};
+  ${tw`justify-center flex bg-white`};
 `;
 
 const Navigation = styled.div`
-  ${tw`p-2 flex items-center w-full`};
-  max-width: 1280px;
+  ${tw`p-2 flex items-center shadow-header w-full pr-0`};
+  z-index: 1;
   height: 50px;
 `;
 
@@ -19,53 +21,61 @@ const Logo = styled.img`
 `;
 
 const Title = styled.span`
-  ${tw`p-3 text-blue font-normal`};
-  border-right: 2px solid ${colors.spacer};
+  ${tw`m-3 text-blue font-normal`};
   font-size: 2.5rem;
 `;
 
-const Text = styled.span`
-  ${tw`pl-2`};
+const StepContainer = styled.div`
+  ${tw`flex pl-3 pr-3 m-auto`}
+  margin-top: -0.5rem;
 `;
 
-const Spacer = styled.div`
-  ${tw`p-3`};
-  border-right: 2px solid ${colors.spacer};
+const StepButton = styled(StepContainer)`
+  ${tw`mt-0 ml-auto`};
 `;
 
-const Category = styled.span`
-  ${tw`text-blue capitalize`}
+const Step = styled.h3`
+  ${tw`text-h4 font-light mr-1`}
+  font-weight: ${props => props.actualStep && 500};
+  color: ${props => props.actualStep && `${colors.blue}`};
 `;
 
-const Error = styled.span`
-  ${tw`ml-1 text-red`}
+const StepIcon = styled.img`
+  ${tw`h-3 m-auto mr-1`}
+  padding-top: 0.2rem;
 `;
 
-const Success = styled.span`
-  ${tw`ml-1 text-blue`}
-`;
-
-const HeaderView = ({ productName, productCategory }) => (
+const HeaderView = ({ actualStep, allStep }) => (
   <Content>
     <Navigation>
       <Logo src={LogoSVG} alt="Logo" />
       <Title>Générateur de fichiers CSV</Title>
-      <Spacer>
-        <span>
-          Catégorie du produit :{' '}
-          <Category>{productCategory}</Category>
-        </span>
-      </Spacer>
-      <Text>Nom du produit : </Text>
-      {productName === '' && <Error>Non défini</Error>}
-      <Success>{productName}</Success>
+      <StepContainer>
+        {allStep.map((step, item, array) => (
+          <React.Fragment key={step.stepName}>
+            <Step actualStep={actualStep.id === step.id}>
+              {step.stepName}
+            </Step>
+            {/* We are checking here the last item of the array and we don't want to show the StepIcon for its */}
+            {array.length - 1 !== item && (
+              <StepIcon src={StepUrl} />
+            )}
+          </React.Fragment>
+        ))}
+      </StepContainer>
+      <StepButton>
+        <Button
+          height={5}
+          value="Générer votre fiche produit"
+        />
+      </StepButton>
     </Navigation>
   </Content>
 );
 
 HeaderView.propTypes = {
-  productName: PropTypes.string,
-  productCategory: PropTypes.string,
+  actualStep: PropTypes.object,
+  allStep: PropTypes.array,
 };
 
 export default HeaderView;

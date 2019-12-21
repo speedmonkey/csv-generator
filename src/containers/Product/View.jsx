@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors } from 'root/tailwind';
-import Card from 'components/Card';
 import H3 from 'components/H3';
 import ProductCategory from './ProductCategory';
 import ProductName from './ProductName';
@@ -30,7 +29,7 @@ const ProductView = ({
   updateSheetOptions,
 }) => (
   <div>
-    <Card>
+    <>
       <H3>Étape 1 : Création du produit</H3>
       <Image
         src={requireImage(`./${productCategory}.jpg`)}
@@ -54,7 +53,7 @@ const ProductView = ({
           setProductReference={setProductReference}
         />
       </Row>
-    </Card>
+    </>
   </div>
 );
 
