@@ -8,7 +8,7 @@ const ProductReference = ({
   setProductReference,
 }) => (
   <>
-    <Label>Référence du produit</Label>
+    <Label>Référence du produit :</Label>
     <Input
       placeholder="MONTRESOREWBWG"
       value={productReference}

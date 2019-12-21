@@ -5,6 +5,12 @@ import PropTypes from 'prop-types';
 import { colors } from 'root/tailwind';
 import StepUrl from 'images/Step.svg';
 import Button from 'components/Button';
+import {
+  PRODUCT_STEP,
+  SHEET_STEP,
+  QUALITY_STEP,
+} from 'constants/appConstants';
+import history from 'utils/history';
 
 const Content = styled.div`
   ${tw`justify-center flex bg-white`};
@@ -17,21 +23,21 @@ const Navigation = styled.div`
 `;
 
 const Logo = styled.img`
-  ${tw`h-6`}
+  ${tw`h-6 cursor-pointer`}
 `;
 
 const Title = styled.span`
-  ${tw`m-3 text-blue font-normal`};
+  ${tw`m-3 text-blue font-normal cursor-pointer`};
   font-size: 2.5rem;
 `;
 
 const StepContainer = styled.div`
-  ${tw`flex pl-3 pr-3 m-auto`}
+  ${tw`hidden xl:flex pl-3 pr-3 m-auto`}
   margin-top: -0.5rem;
 `;
 
 const StepButton = styled(StepContainer)`
-  ${tw`mt-0 ml-auto`};
+  ${tw`flex mt-0 ml-auto`};
 `;
 
 const Step = styled.h3`
@@ -41,15 +47,26 @@ const Step = styled.h3`
 `;
 
 const StepIcon = styled.img`
-  ${tw`h-3 m-auto mr-1`}
+  ${tw`m-auto mr-1`}
+  height: 2.2rem;
   padding-top: 0.2rem;
 `;
 
-const HeaderView = ({ actualStep, allStep }) => (
+const HeaderView = ({
+  actualStep,
+  allStep,
+  emptyProduct,
+}) => (
   <Content>
     <Navigation>
-      <Logo src={LogoSVG} alt="Logo" />
-      <Title>Générateur de fichiers CSV</Title>
+      <Logo
+        src={LogoSVG}
+        alt="Logo"
+        onClick={() => history.push('/')}
+      />
+      <Title onClick={() => history.push('/')}>
+        Générateur de fichiers CSV
+      </Title>
       <StepContainer>
         {allStep.map((step, item, array) => (
           <React.Fragment key={step.stepName}>
@@ -64,10 +81,42 @@ const HeaderView = ({ actualStep, allStep }) => (
         ))}
       </StepContainer>
       <StepButton>
-        <Button
-          height={5}
-          value="Générer votre fiche produit"
-        />
+        {actualStep.id === PRODUCT_STEP.id && (
+          <Button
+            height={5}
+            value={actualStep.stepButton}
+            isDisabled={emptyProduct}
+            events={() => {
+              if (!emptyProduct) {
+                history.push('sheet');
+              }
+            }}
+          />
+        )}
+        {actualStep.id === SHEET_STEP.id && (
+          <Button
+            height={5}
+            value={actualStep.stepButton}
+            isDisabled={emptyProduct}
+            events={() => {
+              if (!emptyProduct) {
+                history.push('quality');
+              }
+            }}
+          />
+        )}
+        {actualStep.id === QUALITY_STEP.id && (
+          <Button
+            height={5}
+            value={actualStep.stepButton}
+            isDisabled={emptyProduct}
+            events={() => {
+              if (!emptyProduct) {
+                history.push('sheet');
+              }
+            }}
+          />
+        )}
       </StepButton>
     </Navigation>
   </Content>
@@ -76,6 +125,7 @@ const HeaderView = ({ actualStep, allStep }) => (
 HeaderView.propTypes = {
   actualStep: PropTypes.object,
   allStep: PropTypes.array,
+  emptyProduct: PropTypes.bool,
 };
 
 export default HeaderView;

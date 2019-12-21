@@ -5,6 +5,7 @@ import {
   updateDefaultValueAction,
   updateSheetOptionsAction,
 } from 'actions/sheetActions';
+import { updateStepAction } from 'actions/headerActions';
 import { productCategorySelector } from 'selectors/productSelectors';
 import SheetView from './View';
 
@@ -24,6 +25,8 @@ const mapDispatchToProps = dispatch => ({
     ),
   updateSheetOptions: dataSheet =>
     dispatch(updateSheetOptionsAction(dataSheet)),
+  updateStep: newStep =>
+    dispatch(updateStepAction(newStep)),
 });
 
 const withConnect = connect(

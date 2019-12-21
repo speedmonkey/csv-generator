@@ -10,7 +10,7 @@ const RecapContainer = styled.div`
 `;
 
 const Recap = styled.div`
-  ${tw`absolute bg-body h-10`};
+  ${tw`absolute bg-white h-10`};
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   width: 85%;

@@ -18,12 +18,13 @@ const BodyContent = styled.div`
 `;
 
 const Wrapper = styled.div`
-  ${tw`justify-center flex flex-col bg-blueLighter`};
+  ${tw`justify-center flex flex-col bg-white`};
 `;
 
 const Container = styled.div`
-  ${tw`p-2 flex items-center w-full`};
-  max-width: 1380px;
+  ${tw`p-2 flex items-center`};
+  margin-left: 7.5%;
+  margin-right: 7.5%;
 `;
 
 const App = () => (

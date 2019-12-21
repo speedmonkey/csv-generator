@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Card from 'components/Card';
 import H3 from 'components/H3';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Input from 'components/Input';
 import { NUMBER_VALUES } from 'constants/sheetConstants';
+import { SHEET_STEP } from 'constants/appConstants';
 import Label from 'components/Label';
 import ReloadIcon from 'images/reload.svg';
 import ShowSelectValues from './ShowSelectValues';
@@ -37,58 +38,69 @@ const SheetView = ({
   productCategory,
   updateDefaultValue,
   updateSheetOptions,
-}) => (
-  <Wrapper>
-    <Reload
-      src={ReloadIcon}
-      onClick={() => updateSheetOptions(productCategory)}
-    />
-    <Card>
-      <H3>Étape 2 : Fiche technique</H3>
-      <Row>
-        <div>
-          {optionsSheet.selectValues.map((item, index) => (
-            <Row key={item.name}>
-              <Label>{item.name} :</Label>
-              <ShowSelectValues
-                selectValues={item.selectValues}
-                defaultValue={item.defaulValue}
-                optionIndex={index}
-                updateDefaultValue={updateDefaultValue}
-              />
-            </Row>
-          ))}
-        </div>
-        <div>
-          {optionsSheet.numberValues.map((item, index) => (
-            <Row key={item.name}>
-              <Label>{item.name} :</Label>
-              <SheetInput
-                type="number"
-                step={item.step}
-                value={item.defaultValue}
-                onChange={e =>
-                  updateDefaultValue(
-                    e.target.value,
-                    index,
-                    NUMBER_VALUES,
-                  )
-                }
-              />
-            </Row>
-          ))}
-        </div>
-      </Row>
-      <MoreOptions optionsSheet={optionsSheet} />
-    </Card>
-  </Wrapper>
-);
+  updateStep,
+}) => {
+  useEffect(() => {
+    updateStep(SHEET_STEP);
+  }, []);
+  return (
+    <Wrapper>
+      <Reload
+        src={ReloadIcon}
+        onClick={() => updateSheetOptions(productCategory)}
+      />
+      <Card>
+        <H3>Étape 2 : Fiche technique</H3>
+        <Row>
+          <div>
+            {optionsSheet.selectValues.map(
+              (item, index) => (
+                <Row key={item.name}>
+                  <Label>{item.name} :</Label>
+                  <ShowSelectValues
+                    selectValues={item.selectValues}
+                    defaultValue={item.defaulValue}
+                    optionIndex={index}
+                    updateDefaultValue={updateDefaultValue}
+                  />
+                </Row>
+              ),
+            )}
+          </div>
+          <div>
+            {optionsSheet.numberValues.map(
+              (item, index) => (
+                <Row key={item.name}>
+                  <Label>{item.name} :</Label>
+                  <SheetInput
+                    type="number"
+                    step={item.step}
+                    value={item.defaultValue}
+                    onChange={e =>
+                      updateDefaultValue(
+                        e.target.value,
+                        index,
+                        NUMBER_VALUES,
+                      )
+                    }
+                  />
+                </Row>
+              ),
+            )}
+          </div>
+        </Row>
+        <MoreOptions optionsSheet={optionsSheet} />
+      </Card>
+    </Wrapper>
+  );
+};
 
 SheetView.propTypes = {
   optionsSheet: PropTypes.object,
   productCategory: PropTypes.string,
   updateDefaultValue: PropTypes.func,
   updateSheetOptions: PropTypes.func,
+  updateStep: PropTypes.func,
 };
 
 export default SheetView;

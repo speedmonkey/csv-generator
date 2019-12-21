@@ -10,6 +10,7 @@
       "constants/*": ["src/redux/constants/*"],
       "reducers/*": ["src/redux/reducers/*"],
       "selectors/*": ["src/redux/selectors/*"],
+      "utils/*": ["src/utils"],
       "root/*": ["./*"]
     },
     "jsx": "react"

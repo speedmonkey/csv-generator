@@ -48,6 +48,7 @@ module.exports = {
       'constants': path.resolve(__dirname, 'src/redux/constants'), // prettier-ignore
       'reducers': path.resolve(__dirname, 'src/redux/reducers'), // prettier-ignore
       'selectors': path.resolve(__dirname, 'src/redux/selectors'), // prettier-ignore
+      'utils': path.resolve(__dirname, 'src/utils'), // prettier-ignore
       'root': path.resolve(__dirname, './') // prettier-ignore
       /* eslint-enable */
     },

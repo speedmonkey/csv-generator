@@ -14,6 +14,7 @@ import {
   updateColumnToDeleteAction,
   deleteColumnTableAction,
 } from 'actions/qualityActions';
+import { updateStepAction } from 'actions/headerActions';
 import QualityView from './View';
 
 const mapStateToProps = state => ({
@@ -41,6 +42,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(updateColumnToDeleteAction(columnTable)),
   deleteColumnTable: () =>
     dispatch(deleteColumnTableAction()),
+  updateStep: newStep =>
+    dispatch(updateStepAction(newStep)),
 });
 
 const withConnect = connect(
