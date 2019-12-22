@@ -21,6 +21,7 @@ const CellInput = styled.input`
   font-size: 1.5rem;
   height: 1.5rem;
   width: 8rem;
+  color: ${colors.black} !important;
 `;
 
 /* eslint-disable react/no-array-index-key */
@@ -32,13 +33,7 @@ const CaratTable = ({ caratLines, updateValueTable }) => (
           <CellInput
             autoComplete="notOn"
             value={line}
-            onChange={e =>
-              updateValueTable(
-                e.target.value,
-                caratLines.tabNumber,
-                index,
-              )
-            }
+            disabled
           />
         ) : (
           <CellInputNumber

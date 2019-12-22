@@ -31,8 +31,10 @@ const ProductCategory = ({
           Solitaires Diamant
         </option>
         <option value="alliances">Alliances</option>
-        <option value="bijoux">Bijoux</option>
-        <option value="parures">Parures</option>
+        <option value="colliers">Colliers</option>
+        <option value="boucles">
+          Boucles d&apos;oreilles
+        </option>
       </Select>
       <Chevron src={ChevronIcon} />
     </SelectContainer>

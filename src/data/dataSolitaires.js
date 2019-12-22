@@ -12,30 +12,34 @@ const POIDS_PIERRE = {
 
 const COULEUR_DIAMANTS = {
   name: 'Couleur diamants',
-  selectValues: ['D - I', 'IF - L1'],
+  selectValues: ['D - I', 'IF - L1', 'D - E - G ou H'],
   defaultValue: 'D - I',
 };
 
 const COULEUR_DIAMANTS_COTES = {
-  name: 'Couleur des diamants de côtés',
-  selectValues: ['D - I', 'IF - L1'],
+  name: 'Couleur des diamants de cotes',
+  selectValues: ['D - I', 'IF - L1', 'D - E - G ou H'],
   defaultValue: 'D - I',
 };
 
 const PURETE_DIAMANTS = {
-  name: 'Pureté',
-  selectValues: ['IF - L1', 'D - I'],
+  name: 'Purete',
+  selectValues: [
+    'IF - L1',
+    'D - I',
+    'IF - VVS2 - VS1 -SI1',
+  ],
   defaultValue: 'IF - L1',
 };
 
 const PURETE_DIAMANTS_COTES = {
-  name: 'Pureté des diamants de côtés',
+  name: 'Purete des diamants de cotes',
   selectValues: ['IF - L1', 'D - I'],
   defaultValue: 'IF - L1',
 };
 
 const METAL_UTILISE = {
-  name: 'Métal utilisé',
+  name: 'Metal utilise',
   selectValues: [
     'Or Blanc 750/1000',
     'Or Jaune 750/1000',
@@ -45,8 +49,14 @@ const METAL_UTILISE = {
   defaultValue: 'Or Blanc 750/1000',
 };
 
+const TOUR_DOIGT = {
+  name: 'Tour de doigt',
+  selectValues: ['46 - 60', '30 - 40', '40 - 60'],
+  defaultValue: '46-60',
+};
+
 const COULEUR_METAL = {
-  name: 'Couleur du métal',
+  name: 'Couleur du metal',
   selectValues: ['Blanc', 'Jaune', 'Rose', 'Platine'],
   defaultValue: 'Blanc',
 };
@@ -70,6 +80,7 @@ export const selectSolitaires = [
   PURETE_DIAMANTS_COTES,
   METAL_UTILISE,
   COULEUR_METAL,
+  TOUR_DOIGT,
   LARGEUR_ANNEAU,
 ];
 
@@ -80,7 +91,7 @@ export const selectSolitaires = [
 */
 
 const POIDS_MOYEN = {
-  name: 'Poids moyen du métal',
+  name: 'Poids moyen du metal',
   defaultValue: 3.1,
   step: 0.1,
 };

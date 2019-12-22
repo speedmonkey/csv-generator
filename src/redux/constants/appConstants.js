@@ -37,12 +37,11 @@ export const HEADER_STEPS = [
 ];
 
 export const BASIC_HEADERS = [
-  'Nom du modèle',
-  'Qualité',
+  'Nom du modele',
+  'Qualite',
   'Carats',
   'Prix TTC',
   'Shop ID',
   'TVA',
   'Reference',
-  'Description',
 ];

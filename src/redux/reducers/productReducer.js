@@ -2,7 +2,6 @@ import {
   SET_PRODUCT_CATEGORY,
   SET_PRODUCT_NAME,
   SET_PRODUCT_REFERENCE,
-  SET_PRODUCT_DESCRIPTION,
 } from 'constants/productConstants';
 
 import produce from 'immer';
@@ -11,7 +10,6 @@ const initialState = {
   productCategory: 'solitaires',
   productName: '',
   productReference: '',
-  productDescription: '',
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -26,10 +24,6 @@ const productReducer = (state = initialState, action) =>
         break;
       case SET_PRODUCT_REFERENCE:
         draft.productReference = action.productReference;
-        break;
-      case SET_PRODUCT_DESCRIPTION:
-        draft.productDescription =
-          action.productDescription;
     }
   });
 

@@ -6,7 +6,6 @@ import { PRODUCT_STEP } from 'constants/appConstants';
 import ProductCategory from './ProductCategory';
 import ProductName from './ProductName';
 import ProductReference from './ProductReference';
-import ProductDescription from './ProductDescription';
 
 const FlexContent = styled.div`
   ${tw`flex w-full`};
@@ -32,11 +31,9 @@ const ProductView = ({
   productCategory,
   productName,
   productReference,
-  productDescription,
   setProductCategory,
   setProductName,
   setProductReference,
-  setProductDescription,
   updateSheetOptions,
   updateStep,
 }) => {
@@ -66,12 +63,6 @@ const ProductView = ({
             setProductReference={setProductReference}
           />
         </Row>
-        <Row>
-          <ProductDescription
-            productDescription={productDescription}
-            setProductDescription={setProductDescription}
-          />
-        </Row>
       </div>
       <Poster>
         <Image
@@ -86,11 +77,9 @@ ProductView.propTypes = {
   productCategory: PropTypes.string,
   productName: PropTypes.string,
   productReference: PropTypes.string,
-  productDescription: PropTypes.string,
   setProductCategory: PropTypes.func,
   setProductName: PropTypes.func,
   setProductReference: PropTypes.func,
-  setProductDescription: PropTypes.func,
   updateSheetOptions: PropTypes.func,
   updateStep: PropTypes.func,
 };

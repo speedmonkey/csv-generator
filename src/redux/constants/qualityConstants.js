@@ -31,7 +31,7 @@ const THIRD_CARAT_TABLE = {
 
 const FOURTH_CARAT_TABLE = {
   tabNumber: 3,
-  carats: ['1 CARAT', '', '', '', '', ''],
+  carats: ['1,0 CARAT', '', '', '', '', ''],
 };
 
 const FIVE_CARAT_TABLE = {

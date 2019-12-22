@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Card from 'components/Card';
-import H3 from 'components/H3';
 import { colors } from 'root/tailwind';
 import Table from 'components/Table';
 import { QUALITY_STEP } from 'constants/appConstants';
@@ -20,7 +18,7 @@ const Row = styled.div`
 `;
 
 const Cell = styled.div`
-  ${tw`p-1`};
+  ${tw`p-1 cursor-default`};
   border: 1px solid ${colors.spacerLight};
   border-left: 0px;
   font-size: 1.5rem;
@@ -47,7 +45,7 @@ const QualityView = ({
   updateStep,
 }) => {
   useEffect(() => {
-    // if (emptyProduct || emptySheet) history.push('/');
+    if (emptyProduct || emptySheet) history.push('/');
     updateStep(QUALITY_STEP);
   }, []);
 

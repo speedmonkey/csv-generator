@@ -24,39 +24,11 @@ export const csvInformationsSelector = createSelector(
     countTabSelector,
   ],
   (product, optionsSheet, quality, caratTab, countTab) => {
-    /*
-     * Première partie du générateur de CSV:
-     * Création des Headers et de la première ligne
-     */
     const csvHeaders = BASIC_HEADERS.concat(
       optionsSheet.allValues,
     );
-    const initialInfos = [
-      product.productName,
-      quality[0],
-      caratTab[0].carats[0],
-      caratTab[0].carats[1],
-      1,
-      'FR Taux Standard (20%)',
-      product.productReference,
-      product.productDescription,
-    ];
-    const selectValues = optionsSheet.selectValues.map(
-      item => item.defaultValue,
-    );
-    const numberValues = optionsSheet.numberValues.map(
-      item => item.defaultValue,
-    );
-    const firstLine = initialInfos.concat(
-      selectValues,
-      numberValues,
-    );
-    const csv = [csvHeaders, firstLine];
-    /*
-     * Deuxième partie du générateur de CSV :
-     * Création de l'ensemble du fichier CSV
-     */
 
+    const csv = [csvHeaders];
     const array = [];
     let referenceLine = 1;
     for (
@@ -69,7 +41,7 @@ export const csvInformationsSelector = createSelector(
         caratNumber < countTab;
         caratNumber += 1
       ) {
-        const newLine = [
+        let newLine = [
           product.productName,
           quality[qualityNumber],
           caratTab[caratNumber].carats[0],
@@ -78,6 +50,16 @@ export const csvInformationsSelector = createSelector(
           'FR Taux Standard (20%)',
           `${product.productReference}_${referenceLine}`,
         ];
+        const selectValues = optionsSheet.selectValues.map(
+          item => item.defaultValue,
+        );
+        const numberValues = optionsSheet.numberValues.map(
+          item => item.defaultValue,
+        );
+        newLine = newLine.concat(
+          selectValues,
+          numberValues,
+        );
         array.push(newLine);
         referenceLine += 1;
       }

@@ -3,13 +3,24 @@ import {
   selectSolitaires,
   numberSolitaires,
 } from 'data/dataSolitaires';
-import { selectAlliances } from 'data/dataAlliances';
+import {
+  selectAlliances,
+  numberAlliances,
+} from 'data/dataAlliances';
+import {
+  selectBoucles,
+  numberBoucles,
+} from 'data/dataBoucles';
 import {
   UPDATE_SHEET_OPTIONS,
   UPDATE_DEFAULT_VALUE,
   UPDATE_VALUE_TO_DELETE,
   DELETE_INPUT,
 } from 'constants/sheetConstants';
+import {
+  selectColliers,
+  numberColliers,
+} from 'data/dataColliers';
 
 function updateAllValues(
   select = selectSolitaires,
@@ -36,12 +47,23 @@ const sheetReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
       case UPDATE_SHEET_OPTIONS: {
-        if (action.dataSheet === 'alliances')
-          draft.optionsSheet.selectValues = selectAlliances;
-        else if (action.dataSheet === 'solitaires') {
+        if (action.dataSheet === 'solitaires') {
           draft.optionsSheet.selectValues = selectSolitaires;
           draft.optionsSheet.numberValues = numberSolitaires;
+        } else if (action.dataSheet === 'alliances') {
+          draft.optionsSheet.selectValues = selectAlliances;
+          draft.optionsSheet.numberValues = numberAlliances;
+        } else if (action.dataSheet === 'colliers') {
+          draft.optionsSheet.selectValues = selectColliers;
+          draft.optionsSheet.numberValues = numberColliers;
+        } else if (action.dataSheet === 'boucles') {
+          draft.optionsSheet.selectValues = selectBoucles;
+          draft.optionsSheet.numberValues = numberBoucles;
         }
+        draft.optionsSheet.allValues = updateAllValues(
+          draft.optionsSheet.selectValues,
+          draft.optionsSheet.numberValues,
+        );
         break;
       }
       case UPDATE_DEFAULT_VALUE:

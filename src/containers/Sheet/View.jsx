@@ -74,7 +74,7 @@ const SheetView = ({
               <Label>{item.name} :</Label>
               <ShowSelectValues
                 selectValues={item.selectValues}
-                defaultValue={item.defaulValue}
+                defaultValue={item.defaultValue}
                 optionIndex={index}
                 updateDefaultValue={updateDefaultValue}
               />

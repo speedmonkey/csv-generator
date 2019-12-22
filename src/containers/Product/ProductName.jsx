@@ -7,7 +7,7 @@ const ProductName = ({ productName, setProductName }) => (
   <>
     <Label>Nom du produit :</Label>
     <Input
-      placeholder="Alliance Diamant ELLE Or Blanc"
+      placeholder="Solitaire Diamant ELLE Coeur"
       onChange={e => setProductName(e.target.value)}
       value={productName}
       required
