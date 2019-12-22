@@ -29,7 +29,7 @@ module.exports = {
             options: {
               limit: 10 * 1024,
               publicPath: './',
-              name: '[name]-[hash].[ext]',
+              name: 'react-app/[name].[ext]',
               esModule: false,
             },
           },
