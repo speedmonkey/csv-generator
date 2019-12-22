@@ -30,6 +30,8 @@ const HeaderView = ({
   emptyProduct,
   emptySheet,
   filledQuality,
+  productName,
+  csvInformations,
 }) => (
   <Content>
     <Navigation>
@@ -51,6 +53,8 @@ const HeaderView = ({
         emptyProduct={emptyProduct}
         emptySheet={emptySheet}
         filledQuality={filledQuality}
+        productName={productName}
+        csvInformations={csvInformations}
       />
     </Navigation>
   </Content>
@@ -61,6 +65,8 @@ HeaderView.propTypes = {
   emptyProduct: PropTypes.bool,
   emptySheet: PropTypes.bool,
   filledQuality: PropTypes.bool,
+  productName: PropTypes.string,
+  csvInformations: PropTypes.array,
 };
 
 export default HeaderView;

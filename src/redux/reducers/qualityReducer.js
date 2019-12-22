@@ -50,7 +50,7 @@ const qualityReducer = (state = initialState, action) =>
         draft.columnToDelete = action.columnTable;
         break;
       case DELETE_COLUMN_TABLE:
-        if (draft.countTab !== 0) {
+        if (draft.countTab > 1) {
           draft.caratTab.splice(draft.columnToDelete, 1);
           draft.countTab -= 1;
           for (
@@ -60,7 +60,7 @@ const qualityReducer = (state = initialState, action) =>
           ) {
             draft.caratTab[i].tabNumber = i;
           }
-          draft.columnToDelete = 0;
+          draft.columnToDelete = draft.countTab - 1;
           break;
         }
     }

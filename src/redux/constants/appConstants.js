@@ -35,3 +35,14 @@ export const HEADER_STEPS = [
   SHEET_STEP,
   QUALITY_STEP,
 ];
+
+export const BASIC_HEADERS = [
+  'Nom du modèle',
+  'Qualité',
+  'Carats',
+  'Prix TTC',
+  'Shop ID',
+  'TVA',
+  'Reference',
+  'Description',
+];
