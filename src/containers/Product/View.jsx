@@ -43,6 +43,7 @@ const ProductView = ({
   useEffect(() => {
     updateStep(PRODUCT_STEP);
   }, []);
+
   return (
     <FlexContent>
       <div>

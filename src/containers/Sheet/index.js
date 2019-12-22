@@ -6,10 +6,14 @@ import {
   updateSheetOptionsAction,
 } from 'actions/sheetActions';
 import { updateStepAction } from 'actions/headerActions';
-import { productCategorySelector } from 'selectors/productSelectors';
+import {
+  emptyProductSelector,
+  productCategorySelector,
+} from 'selectors/productSelectors';
 import SheetView from './View';
 
 const mapStateToProps = state => ({
+  emptyProduct: emptyProductSelector(state),
   optionsSheet: optionsSheetSelector(state),
   productCategory: productCategorySelector(state),
 });

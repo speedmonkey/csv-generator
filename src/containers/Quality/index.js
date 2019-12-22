@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { productNameSelector } from 'selectors/productSelectors';
+import {
+  emptyProductSelector,
+  productNameSelector,
+} from 'selectors/productSelectors';
+import { emptySheetSelector } from 'selectors/sheetSelectors';
 import {
   qualityFieldsSelector,
   caratTabSelector,
@@ -18,6 +22,8 @@ import { updateStepAction } from 'actions/headerActions';
 import QualityView from './View';
 
 const mapStateToProps = state => ({
+  emptyProduct: emptyProductSelector(state),
+  emptySheet: emptySheetSelector(state),
   productName: productNameSelector(state),
   qualityFields: qualityFieldsSelector(state),
   caratTab: caratTabSelector(state),

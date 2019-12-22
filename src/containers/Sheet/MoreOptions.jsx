@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Label from 'components/Label';
 import PropTypes from 'prop-types';
-import { colors } from 'root/tailwind';
 import Select from 'components/Select';
 import ChevronIcon from 'images/Chevron.svg';
 import Button from 'components/Button';
@@ -16,15 +14,21 @@ import {
   updateValueToDeleteAction,
   deleteInputAction,
 } from 'actions/sheetActions';
-import SelectContainer from 'components/SelectContainer';
+
+const SelectWrapper = styled.div`
+  ${tw`relative mr-2`}
+`;
+
+const SelectInput = styled(Select)`
+  width: 200px;
+`;
 
 const Row = styled.div`
-  ${tw`flex flex-row`};
-  padding: 0.8rem;
+  ${tw`flex pt-1`};
 `;
 
 const Content = styled.div`
-  border-top: 2px solid ${colors.spacer};
+  ${tw`pb-2`}
 `;
 
 const Chevron = styled.img`
@@ -43,9 +47,8 @@ const MoreOptions = ({
     <Row>
       <div>
         <Row>
-          <Label>Supprimer un champ :</Label>
-          <SelectContainer>
-            <Select
+          <SelectWrapper>
+            <SelectInput
               value={valueToDelete}
               onChange={e =>
                 updateValueToDelete(e.target.value)
@@ -56,9 +59,9 @@ const MoreOptions = ({
                   {item}
                 </option>
               ))}
-            </Select>
+            </SelectInput>
             <Chevron src={ChevronIcon} />
-          </SelectContainer>
+          </SelectWrapper>
           <Button
             value="Supprimer"
             events={() => deleteInput(valueToDelete)}

@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
-import Card from 'components/Card';
-import H3 from 'components/H3';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Input from 'components/Input';
 import { NUMBER_VALUES } from 'constants/sheetConstants';
 import { SHEET_STEP } from 'constants/appConstants';
 import Label from 'components/Label';
-import ReloadIcon from 'images/reload.svg';
+import Button from 'components/Button';
+import H4 from 'components/H4';
+import { colors } from 'root/tailwind';
+import history from 'utils/history';
 import ShowSelectValues from './ShowSelectValues';
 import MoreOptions from './MoreOptions';
 
@@ -15,15 +16,29 @@ const Wrapper = styled.div`
   ${tw`relative`};
 `;
 
-const Reload = styled.img`
-  ${tw`absolute h-4 cursor-pointer`};
-  right: 35px;
-  top: 35px;
+const Row = styled.div`
+  ${tw`flex flex-row pb-1 pr-2`};
 `;
 
-const Row = styled.div`
-  ${tw`flex flex-row`};
-  padding: 0.8rem;
+const Section = styled.div`
+  ${tw`mr-3`}
+`;
+
+const SectionTitle = styled(H4)`
+  ${tw`text-blueDarker p-0 pb-2 relative`}
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80%;
+    height: 1px;
+    border-bottom: 2px solid ${colors.spacer};
+    content: '';
+  }
+`;
+
+const Spacer = styled.div`
+  ${tw`mb-2`}
 `;
 
 const SheetInput = styled(Input)`
@@ -34,6 +49,7 @@ const SheetInput = styled(Input)`
 `;
 
 const SheetView = ({
+  emptyProduct,
   optionsSheet,
   productCategory,
   updateDefaultValue,
@@ -41,61 +57,68 @@ const SheetView = ({
   updateStep,
 }) => {
   useEffect(() => {
+    if (emptyProduct) history.push('/');
     updateStep(SHEET_STEP);
   }, []);
+
   return (
     <Wrapper>
-      <Reload
-        src={ReloadIcon}
-        onClick={() => updateSheetOptions(productCategory)}
-      />
-      <Card>
-        <H3>Étape 2 : Fiche technique</H3>
-        <Row>
-          <div>
-            {optionsSheet.selectValues.map(
-              (item, index) => (
-                <Row key={item.name}>
-                  <Label>{item.name} :</Label>
-                  <ShowSelectValues
-                    selectValues={item.selectValues}
-                    defaultValue={item.defaulValue}
-                    optionIndex={index}
-                    updateDefaultValue={updateDefaultValue}
-                  />
-                </Row>
-              ),
-            )}
-          </div>
-          <div>
-            {optionsSheet.numberValues.map(
-              (item, index) => (
-                <Row key={item.name}>
-                  <Label>{item.name} :</Label>
-                  <SheetInput
-                    type="number"
-                    step={item.step}
-                    value={item.defaultValue}
-                    onChange={e =>
-                      updateDefaultValue(
-                        e.target.value,
-                        index,
-                        NUMBER_VALUES,
-                      )
-                    }
-                  />
-                </Row>
-              ),
-            )}
-          </div>
-        </Row>
-        <MoreOptions optionsSheet={optionsSheet} />
-      </Card>
+      <Row>
+        <Section>
+          <SectionTitle>
+            Caractéristiques principales
+          </SectionTitle>
+          <Spacer />
+          {optionsSheet.selectValues.map((item, index) => (
+            <Row key={item.name}>
+              <Label>{item.name} :</Label>
+              <ShowSelectValues
+                selectValues={item.selectValues}
+                defaultValue={item.defaulValue}
+                optionIndex={index}
+                updateDefaultValue={updateDefaultValue}
+              />
+            </Row>
+          ))}
+        </Section>
+        <Section>
+          <SectionTitle>Nombre et poids</SectionTitle>
+          <Spacer />
+          {optionsSheet.numberValues.map((item, index) => (
+            <Row key={item.name}>
+              <Label>{item.name} :</Label>
+              <SheetInput
+                type="number"
+                step={item.step}
+                value={item.defaultValue}
+                onChange={e =>
+                  updateDefaultValue(
+                    e.target.value,
+                    index,
+                    NUMBER_VALUES,
+                  )
+                }
+              />
+            </Row>
+          ))}
+        </Section>
+        <Section>
+          <SectionTitle>Actions disponibles</SectionTitle>
+          <MoreOptions optionsSheet={optionsSheet} />
+          <Button
+            value="Restaurer les caractéristiques par défaut"
+            events={() =>
+              updateSheetOptions(productCategory)
+            }
+          />
+        </Section>
+      </Row>
     </Wrapper>
   );
 };
 
 SheetView.propTypes = {
+  emptyProduct: PropTypes.bool,
   optionsSheet: PropTypes.object,
   productCategory: PropTypes.string,
   updateDefaultValue: PropTypes.func,

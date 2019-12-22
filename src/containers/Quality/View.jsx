@@ -6,6 +6,7 @@ import H3 from 'components/H3';
 import { colors } from 'root/tailwind';
 import Table from 'components/Table';
 import { QUALITY_STEP } from 'constants/appConstants';
+import history from 'utils/history';
 import CaratTable from './CaratTable';
 import ActionsTable from './ActionsTable';
 
@@ -31,6 +32,8 @@ const CellProductName = styled(Cell)`
 `;
 
 const QualityView = ({
+  emptyProduct,
+  emptySheet,
   productName,
   qualityFields,
   caratTab,
@@ -44,8 +47,10 @@ const QualityView = ({
   updateStep,
 }) => {
   useEffect(() => {
+    if (emptyProduct || emptySheet) history.push('/');
     updateStep(QUALITY_STEP);
   }, []);
+
   return (
     <div>
       <Card>
@@ -92,6 +97,8 @@ const QualityView = ({
 };
 
 QualityView.propTypes = {
+  emptyProduct: PropTypes.bool,
+  emptySheet: PropTypes.bool,
   productName: PropTypes.string,
   qualityFields: PropTypes.array,
   caratTab: PropTypes.array,
