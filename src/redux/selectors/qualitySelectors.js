@@ -24,6 +24,11 @@ export const caratTabSelector = createSelector(
   quality => quality.caratTab,
 );
 
+export const countTabSelector = createSelector(
+  qualitySelector,
+  quality => quality.countTab,
+);
+
 export const columnToDeleteSelector = createSelector(
   qualitySelector,
   quality => quality.columnToDelete,

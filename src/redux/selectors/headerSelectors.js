@@ -4,6 +4,7 @@ import { optionsSheetSelector } from 'selectors/sheetSelectors';
 import {
   qualityFieldsSelector,
   caratTabSelector,
+  countTabSelector,
 } from 'selectors/qualitySelectors';
 import { BASIC_HEADERS } from 'constants/appConstants';
 
@@ -20,8 +21,9 @@ export const csvInformationsSelector = createSelector(
     optionsSheetSelector,
     qualityFieldsSelector,
     caratTabSelector,
+    countTabSelector,
   ],
-  (product, optionsSheet, quality, caratTab) => {
+  (product, optionsSheet, quality, caratTab, countTab) => {
     /*
      * Première partie du générateur de CSV:
      * Création des Headers et de la première ligne
@@ -49,10 +51,37 @@ export const csvInformationsSelector = createSelector(
       selectValues,
       numberValues,
     );
+    const csv = [csvHeaders, firstLine];
     /*
      * Deuxième partie du générateur de CSV :
      * Création de l'ensemble du fichier CSV
      */
-    return [csvHeaders, firstLine];
+
+    const array = [];
+    let referenceLine = 1;
+    for (
+      let qualityNumber = 0;
+      qualityNumber < 5;
+      qualityNumber += 1
+    ) {
+      for (
+        let caratNumber = 0;
+        caratNumber < countTab;
+        caratNumber += 1
+      ) {
+        const newLine = [
+          product.productName,
+          quality[qualityNumber],
+          caratTab[caratNumber].carats[0],
+          caratTab[caratNumber].carats[qualityNumber + 1],
+          1,
+          'FR Taux Standard (20%)',
+          `${product.productReference}_${referenceLine}`,
+        ];
+        array.push(newLine);
+        referenceLine += 1;
+      }
+    }
+    return csv.concat(array);
   },
 );
