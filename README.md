@@ -1,2 +1,3 @@
-# reactive
-Template for web application using react.js
+# CSV Generator
+
+Générateur de fichiers CSV spécifique à l'industrie du diamant
