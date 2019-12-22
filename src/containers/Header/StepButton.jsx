@@ -17,6 +17,7 @@ const StepButton = ({
   actualStep,
   emptyProduct,
   emptySheet,
+  filledQuality,
 }) => (
   <Content>
     {actualStep.id === PRODUCT_STEP.id && (
@@ -47,10 +48,10 @@ const StepButton = ({
       <Button
         height={5}
         value={actualStep.stepButton}
-        isDisabled={emptyProduct}
+        isDisabled={!filledQuality}
         events={() => {
-          if (!emptyProduct) {
-            history.push('sheet');
+          if (filledQuality) {
+            history.push('/');
           }
         }}
       />
@@ -62,6 +63,7 @@ StepButton.propTypes = {
   actualStep: PropTypes.object,
   emptyProduct: PropTypes.bool,
   emptySheet: PropTypes.bool,
+  filledQuality: PropTypes.bool,
 };
 
 export default StepButton;

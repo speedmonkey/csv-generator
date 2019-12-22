@@ -27,9 +27,9 @@ const Title = styled.span`
 
 const HeaderView = ({
   actualStep,
-  allStep,
   emptyProduct,
   emptySheet,
+  filledQuality,
 }) => (
   <Content>
     <Navigation>
@@ -43,7 +43,6 @@ const HeaderView = ({
       </Title>
       <StepTitle
         actualStep={actualStep}
-        allStep={allStep}
         emptyProduct={emptyProduct}
         emptySheet={emptySheet}
       />
@@ -51,6 +50,7 @@ const HeaderView = ({
         actualStep={actualStep}
         emptyProduct={emptyProduct}
         emptySheet={emptySheet}
+        filledQuality={filledQuality}
       />
     </Navigation>
   </Content>
@@ -58,9 +58,9 @@ const HeaderView = ({
 
 HeaderView.propTypes = {
   actualStep: PropTypes.object,
-  allStep: PropTypes.array,
   emptyProduct: PropTypes.bool,
   emptySheet: PropTypes.bool,
+  filledQuality: PropTypes.bool,
 };
 
 export default HeaderView;

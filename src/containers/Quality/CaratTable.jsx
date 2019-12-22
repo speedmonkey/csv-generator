@@ -48,7 +48,9 @@ const CaratTable = ({ caratLines, updateValueTable }) => (
             value={line}
             onChange={e =>
               updateValueTable(
-                e.target.value,
+                Number(
+                  e.target.value.replace(/[^0-9.-]+/g, ''),
+                ),
                 caratLines.tabNumber,
                 index,
               )

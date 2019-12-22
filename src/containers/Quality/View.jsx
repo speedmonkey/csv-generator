@@ -15,7 +15,7 @@ const Content = styled.div`
 `;
 
 const Row = styled.div`
-  ${tw`flex flex-row m-2`};
+  ${tw`flex flex-row`};
   border-left: 2px solid ${colors.spacerLight};
 `;
 
@@ -47,52 +47,39 @@ const QualityView = ({
   updateStep,
 }) => {
   useEffect(() => {
-    if (emptyProduct || emptySheet) history.push('/');
+    // if (emptyProduct || emptySheet) history.push('/');
     updateStep(QUALITY_STEP);
   }, []);
 
   return (
-    <div>
-      <Card>
-        <H3>
-          Étape 3 : Gestion de la qualité et des carats
-        </H3>
-        <Content>
-          <Row>
-            <Table>
-              {productName ? (
-                <CellProductName>
-                  {productName}
-                </CellProductName>
-              ) : (
-                <CellProductName>
-                  Nom de votre produit
-                </CellProductName>
-              )}
-              {qualityFields.map(item => (
-                <Cell key={item}>{item}</Cell>
-              ))}
-            </Table>
-            {caratTab.map(item => (
-              <CaratTable
-                key={item.tabNumber}
-                caratLines={item}
-                updateValueTable={updateValueTable}
-              />
-            ))}
-          </Row>
-          <ActionsTable
-            caratTab={caratTab}
-            newColumnName={newColumnName}
-            columnToDelete={columnToDelete}
-            updateNewColumnName={updateNewColumnName}
-            addColumnTable={addColumnTable}
-            updateColumnToDelete={updateColumnToDelete}
-            deleteColumnTable={deleteColumnTable}
+    <Content>
+      <Row>
+        <Table>
+          <CellProductName>
+            {productName || 'Nom de votre produit'}
+          </CellProductName>
+          {qualityFields.map(item => (
+            <Cell key={item}>{item}</Cell>
+          ))}
+        </Table>
+        {caratTab.map(item => (
+          <CaratTable
+            key={item.tabNumber}
+            caratLines={item}
+            updateValueTable={updateValueTable}
           />
-        </Content>
-      </Card>
-    </div>
+        ))}
+      </Row>
+      <ActionsTable
+        caratTab={caratTab}
+        newColumnName={newColumnName}
+        columnToDelete={columnToDelete}
+        updateNewColumnName={updateNewColumnName}
+        addColumnTable={addColumnTable}
+        updateColumnToDelete={updateColumnToDelete}
+        deleteColumnTable={deleteColumnTable}
+      />
+    </Content>
   );
 };
 

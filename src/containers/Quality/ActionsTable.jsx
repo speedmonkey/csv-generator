@@ -3,23 +3,40 @@ import styled from 'styled-components';
 import H4 from 'components/H4';
 import Button from 'components/Button';
 import Input from 'components/Input';
-import SelectContainer from 'components/SelectContainer';
 import Select from 'components/Select';
 import ChevronIcon from 'images/Chevron.svg';
 import PropTypes from 'prop-types';
+import { colors } from 'root/tailwind';
 
 const Actions = styled.div`
-  margin-top: 0.5rem;
+  ${tw`mt-2`}
+`;
+
+const ActionsTitle = styled(H4)`
+  ${tw`text-blueDarker p-0 pb-2 relative`}
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80%;
+    height: 1px;
+    border-bottom: 2px solid ${colors.spacer};
+    content: '';
+  }
 `;
 
 const Row = styled.div`
-  ${tw`flex p-2 pb-1`};
+  ${tw`flex pt-2 pb-0`};
 `;
 
 const ActionInput = styled(Input)`
-  ${tw`pt-0 pb-0`}
-  width: 200px;
+  ${tw`pt-0 pb-0 mr-2`}
+  width: 150px;
   height: 3.3rem;
+`;
+
+const SelectWrapper = styled.div`
+  ${tw`relative mr-2`}
 `;
 
 const Chevron = styled.img`
@@ -38,21 +55,9 @@ const ActionsTable = ({
   deleteColumnTable,
 }) => (
   <Actions>
-    <H4>Actions à faire sur le tableau</H4>
+    <ActionsTitle>Actions disponibles</ActionsTitle>
     <Row>
-      <ActionInput
-        autoComplete="none"
-        value={newColumnName}
-        placeholder="Saisir le nombre de carats"
-        onChange={e => updateNewColumnName(e.target.value)}
-      />
-      <Button
-        value="Ajouter une nouvelle colonne"
-        events={() => addColumnTable(newColumnName)}
-      />
-    </Row>
-    <Row>
-      <SelectContainer>
+      <SelectWrapper>
         <Select
           value={columnToDelete}
           onChange={e =>
@@ -71,11 +76,23 @@ const ActionsTable = ({
           ))}
         </Select>
         <Chevron src={ChevronIcon} />
-      </SelectContainer>
+      </SelectWrapper>
       <Button
         value="Supprimer la colonne choisie"
         events={() => deleteColumnTable()}
         color="#c11e1ef2"
+      />
+    </Row>
+    <Row>
+      <ActionInput
+        autoComplete="none"
+        value={newColumnName}
+        placeholder="Nombre de carats"
+        onChange={e => updateNewColumnName(e.target.value)}
+      />
+      <Button
+        value="Ajouter une nouvelle colonne"
+        events={() => addColumnTable(newColumnName)}
       />
     </Row>
   </Actions>
