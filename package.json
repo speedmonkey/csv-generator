@@ -10,7 +10,10 @@
     "start": "webpack-dev-server --mode development",
     "cm": "git-cz",
     "commit": "yarn cm",
-    "commitmsg": "validate-commit-msg"
+    "commitmsg": "validate-commit-msg",
+    "format": "prettier --write \"src/**/*.js\"",
+    "eslint-fix": "eslint --fix \"src/**/*.js\"",
+    "build": "webpack --mode production"
   },
   "config": {
     "commitizen": {

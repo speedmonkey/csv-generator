@@ -28,7 +28,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               limit: 10 * 1024,
-              publicPath: 'build',
+              publicPath: './',
               name: '[name]-[hash].[ext]',
               esModule: false,
             },
@@ -55,15 +55,15 @@ module.exports = {
     },
   },
   output: {
-    path: path.resolve(__dirname, 'build/'),
-    publicPath: '/build',
+    path: path.resolve(__dirname, 'build'),
+    publicPath: './',
     filename: 'bundle.js',
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: path.join(__dirname, 'public/'),
+    contentBase: './build',
     port: 3000,
-    publicPath: 'http://localhost:3000/build/',
+    publicPath: 'http://localhost:3000',
     hot: true,
     stats: {
       // Handle logs from webpack-dev-server (WDS)
@@ -86,6 +86,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       favicon: './public/favicon.ico',
+      template: path.resolve('./public/index.html'),
     }),
   ],
 };
