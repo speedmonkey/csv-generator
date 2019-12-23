@@ -30,10 +30,20 @@ export const QUALITY_STEP = {
     'Il faut attribuer dans le tableau ci-dessous les différents prix en fonction de la qualité et du carat',
 };
 
+export const NOT_FOUND_STEP = {
+  id: 'notFoundStep',
+  stepName: 'Page introuvable',
+  stepLink: 'notfound',
+  stepButton: `Retourner à l'accueil`,
+  recapTitle: 'Page non trouvable',
+  recapText: `Wooops, cette page n'existe pas`,
+};
+
 export const HEADER_STEPS = [
   PRODUCT_STEP,
   SHEET_STEP,
   QUALITY_STEP,
+  NOT_FOUND_STEP,
 ];
 
 export const BASIC_HEADERS = [

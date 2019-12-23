@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { colors } from 'root/tailwind';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -18,7 +17,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'system-ui', sans-serif;
     font-size: 2.2rem;
     margin: 0;
-    background-color: ${colors.body};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
