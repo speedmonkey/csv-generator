@@ -12,6 +12,9 @@ const Input = styled.input`
   &:focus {
     border: 2px solid ${colors.blueLight};
   }
+  @media (max-width: 768px) {
+    width: 200px;
+  }
 `;
 
 export default Input;

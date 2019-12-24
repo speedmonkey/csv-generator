@@ -7,11 +7,6 @@ const mapStateToProps = state => ({
   actualStep: actualStepSelector(state),
 });
 
-const mapDispatchToProps = () => ({});
-
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-);
+const withConnect = connect(mapStateToProps);
 
 export default compose(withConnect)(RecapView);

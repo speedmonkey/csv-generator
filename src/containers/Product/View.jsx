@@ -12,7 +12,7 @@ const FlexContent = styled.div`
 `;
 
 const Row = styled.div`
-  ${tw`flex flex-row pb-1 pt-2`};
+  ${tw`flex flex-col md:flex-row pb-1 pt-2`};
 `;
 
 const Poster = styled(Card)`

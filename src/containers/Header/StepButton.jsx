@@ -11,12 +11,12 @@ import {
 import Button from 'components/Button';
 
 const Content = styled.div`
-  ${tw`flex pl-3 pr-3 ml-auto`};
+  ${tw`flex pr-2 ml-auto`};
 `;
 
 const CSVButton = styled(CSVLink)`
   ${tw`shadow-def bg-blue text-white 
-  pl-3 pr-3 rounded-def`};
+  rounded-def pl-1 pr-1`};
   font-size: 1.6rem;
   height: 5rem;
   text-decoration: none;

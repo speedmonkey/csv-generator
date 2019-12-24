@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import DiamondUrl from 'images/Diamond.svg';
 
 const DiamondIcon = styled.img`
-  ${tw`absolute`};
+  ${tw`absolute hidden md:block`};
   height: 40px;
   width: 40px;
   top: ${props => props.top && `${props.top}%`};

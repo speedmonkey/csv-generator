@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 `;
 
 const Row = styled.div`
-  ${tw`flex flex-row pb-1 pr-2`};
+  ${tw`flex flex-col md:flex-row pb-1 md:pr-2`};
 `;
 
 const Section = styled.div`
@@ -106,7 +106,7 @@ const SheetView = ({
           <SectionTitle>Actions disponibles</SectionTitle>
           <MoreOptions optionsSheet={optionsSheet} />
           <Button
-            value="Restaurer les caractéristiques par défaut"
+            value="Restaurer les caractéristiques"
             events={() =>
               updateSheetOptions(productCategory)
             }

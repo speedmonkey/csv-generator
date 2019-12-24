@@ -21,8 +21,11 @@ const Logo = styled.img`
 `;
 
 const Title = styled.span`
-  ${tw`m-3 text-blue font-normal cursor-pointer`};
+  ${tw`ml-2 text-blue font-normal cursor-pointer`};
   font-size: 2.5rem;
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const HeaderView = ({

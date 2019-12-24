@@ -5,7 +5,7 @@ import { colors } from 'root/tailwind';
 
 const StyledButton = styled.button`
   ${tw`shadow-def bg-blue text-white 
-  pl-3 pr-3 rounded-def`};
+  pl-1 pr-1 rounded-def`};
   font-size: 1.6rem;
   height: ${props =>
     props.height ? `${props.height}rem` : '3.5rem'};

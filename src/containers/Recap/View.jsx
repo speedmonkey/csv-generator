@@ -18,11 +18,11 @@ const Recap = styled.div`
 `;
 
 const Title = styled.h3`
-  ${tw`text-h3 text-blueDarker m-2 font-normal`};
+  ${tw`text-h4 md:text-h3 text-blueDarker m-1 md:m-2 font-normal`};
 `;
 
 const Text = styled.p`
-  ${tw`ml-2`}
+  ${tw`ml-1 md:ml-2`}
   font-size: 1.7rem;
 `;
 

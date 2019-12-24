@@ -21,10 +21,15 @@ const SelectWrapper = styled.div`
 
 const SelectInput = styled(Select)`
   width: 200px;
+  @media (max-width: 768px) {
+    padding-right: 0;
+    width: 250px;
+    margin-bottom: 1rem;
+  }
 `;
 
 const Row = styled.div`
-  ${tw`flex pt-1`};
+  ${tw`flex flex-col md:flex-row pt-1`};
 `;
 
 const Content = styled.div`
